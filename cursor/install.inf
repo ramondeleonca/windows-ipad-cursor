@@ -1,0 +1,42 @@
+; Windows installer for Ipad Pro cursor theme.
+; Right click on this file ("install.inf"), and click "Install" to install the cursor theme.
+; After installing, change the cursors via windows mouse pointer settings dialog.
+
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur, Scheme.Txt
+AddReg = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+Scheme.Txt = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%cross%,%10%\%CUR_DIR%\%text%,%10%\%CUR_DIR%\%hand%,%10%\%CUR_DIR%\%unavailable%,%10%\%CUR_DIR%\%vert%,%10%\%CUR_DIR%\%horz%,%10%\%CUR_DIR%\%dgn1%,%10%\%CUR_DIR%\%dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%"
+
+[Scheme.Cur]
+"install.inf"
+"transparent.cur"
+
+
+
+[Strings]
+CUR_DIR = "Cursors\Transparent - Ipad Dynamic"
+SCHEME_NAME = "Ipad Dynamic"
+cross = "transparent.cur"
+pointer = "transparent.cur"
+move = "transparent.cur"
+help = "transparent.cur"
+unavailable = "transparent.cur"
+hand = "transparent.cur"
+link = "transparent.cur"
+work = "transparent.cur"
+dgn2 = "transparent.cur"
+dgn1 = "transparent.cur"
+horz = "transparent.cur"
+vert = "transparent.cur"
+text = "transparent.cur"
+alternate = "transparent.cur"
+busy = "transparent.cur"

@@ -1,0 +1,75 @@
+:root {
+    --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --cursor-width: 24;
+    --cursor-height: 24;
+
+    --cursor--text-width: 3;
+    --cursor--text-height: 32;
+
+    --cursor--pointer-width: 30;
+    --cursor--pointer-height: 30;
+
+    --cursor--other-width: 30;
+    --cursor--other-width: 30;
+}
+
+body {
+    margin: 0;
+    cursor: none;
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cursor {
+    background-color: rgba(187, 187, 187, 0.5);
+    outline: 1px solid rgba(187, 187, 187, 0.75);
+    border-radius: calc(var(--cursor-width) / 2 * 1px);
+    width: calc(var(--cursor-width) * 1px);
+    height: calc(var(--cursor-height) * 1px);
+    position: absolute;
+    transition: transform 0.5s var(--ease-out-back), border-radius 0.5s var(--ease-out-back);
+}
+
+.cursor[data-cursor="text"] {
+    transform: scale(calc(var(--cursor--text-width) / var(--cursor-width)), calc(var(--cursor--text-height) / var(--cursor-height)));
+    border-radius: calc(var(--cursor--text-width) / 2 * 1px);
+}
+
+.cursor[data-cursor="pointer"] {
+    transform: scale(calc(var(--cursor--pointer-width) / var(--cursor-width)), calc(var(--cursor--pointer-height) / var(--cursor-height)));
+    border-radius: calc(var(--cursor--pointer-width) / 2 * 1px);
+}
+
+.cursor[data-cursor="other"] {
+    animation: other-cursor infinite var(--ease-out-back) 1s;
+}
+
+@keyframes other-cursor {
+    0%, 100% {
+        transform: scale(1);
+        border-radius: calc(var(--cursor-width) / 2 * 1px);
+    }
+    50% {
+        transform: scale(calc(var(--cursor--other-width) / var(--cursor-width)), calc(var(--cursor--other-height) / var(--cursor-height)));
+        border-radius: calc(var(--cursor--other-width) / 2 * 1px);
+    }
+}
+
+@-webkit-keyframes other-cursor {
+    0%, 100% {
+        transform: scale(1);
+        border-radius: calc(var(--cursor-width) / 2 * 1px);
+    }
+    50% {
+        transform: scale(calc(var(--cursor--other-width) / var(--cursor-width)), calc(var(--cursor--other-height) / var(--cursor-height)));
+        border-radius: calc(var(--cursor--other-width) / 2 * 1px);
+    }
+}
